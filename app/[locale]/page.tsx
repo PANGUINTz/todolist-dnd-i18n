@@ -19,7 +19,10 @@ export default function Index() {
   const t = useTranslations("Title");
 
   useEffect(() => {
-    setTasks(JSON.parse(localStorage.getItem("tasks")!));
+    setTasks(JSON.parse(localStorage.getItem("tasks")!) ?? []);
+    if (!localStorage.getItem("tasks")!) {
+      localStorage.setItem("tasks", JSON.stringify([]));
+    }
   }, []);
 
   return (

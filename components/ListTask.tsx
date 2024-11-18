@@ -22,9 +22,9 @@ const ListTask = ({ tasks, setTasks }: CreateTaskType) => {
   const [closed, setClosed] = useState<ITask[]>([]);
 
   useEffect(() => {
-    const fTodos = tasks.filter((task) => task.status === "todo");
-    const fInProgress = tasks.filter((task) => task.status === "inprogress");
-    const fClosed = tasks.filter((task) => task.status === "closed");
+    const fTodos = tasks?.filter((task) => task.status === "todo");
+    const fInProgress = tasks?.filter((task) => task.status === "inprogress");
+    const fClosed = tasks?.filter((task) => task.status === "closed");
 
     setTodos(fTodos);
     setInProgress(fInProgress);
@@ -110,9 +110,9 @@ const Section = ({
 
   return drop(
     <div className={`w-64 rounded-md p-2 ${isOver && "bg-slate-200"}`}>
-      <Header text={text} bg={bg} count={task.length} />
+      <Header text={text} bg={bg} count={task?.length} />
 
-      {task.length > 0 &&
+      {task?.length > 0 &&
         task.map((item) => (
           <Task key={item.id} task={item} tasks={tasks} setTasks={setTasks} />
         ))}

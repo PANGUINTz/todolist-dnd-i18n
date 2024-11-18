@@ -25,7 +25,7 @@ const CreateTask = ({ tasks, setTasks }: CreateTaskType) => {
 
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    if (task.name.length < 1)
+    if (task?.name?.length < 1)
       return toast.error("task is must have more 3 characters");
 
     setTasks((prev: any) => {
