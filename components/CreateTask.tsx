@@ -34,6 +34,11 @@ const CreateTask = ({ tasks, setTasks }: CreateTaskType) => {
       return list;
     });
     toast.success("create task success");
+    setTask({
+      id: "",
+      name: "",
+      status: "todo",
+    });
   };
 
   const t = useTranslations("Title");
